@@ -176,12 +176,3 @@ Respuesta (ejemplo):
 - Equipo: Andrés Felipe Gutiérrez Martínez, José Miguel Buritica Morales, Manuela Cardona Cartagena
 - Hack-Kognia 2025
 
----
-
-**Licencia**
-
-Este proyecto es un prototipo de hackathon. Añade la licencia apropiada si deseas compartir código públicamente (MIT, Apache-2.0, etc.).
-
----
-
-Si quieres, adapto este README para incluir snippets concretos de `requirements.txt`, `.env.example` o el `package.json` del frontend para que sea totalmente reproducible.
