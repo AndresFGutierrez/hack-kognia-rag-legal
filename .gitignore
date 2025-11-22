@@ -1,0 +1,97 @@
+# General OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnp.cjs
+.pnp.js
+
+# Vite / build outputs
+dist/
+build/
+.vite/
+.cache/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+venv/
+.venv/
+env/
+ENV/
+pip-wheel-metadata/
+*.egg-info/
+.python-version
+
+# Test / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+coverage/
+htmlcov/
+
+# Environment variables
+.env
+.env.*
+
+# Logs
+*.log
+logs/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# JetBrains
+*.iml
+
+# Mac / Windows
+*~
+~$*
+
+# Database / vector stores / large data
+data/
+*.db
+*.sqlite
+vectors/
+vector_store/
+faiss_index*
+indexes/
+
+# Uploaded files
+uploads/
+uploads/**
+
+# Secrets and keys
+*.pem
+*.key
+*.crt
+
+# Python packaging
+.eggs/
+*.egg-info/
+
+# MyPy / Pyre / type checkers
+.mypy_cache/
+.pyre/
+.pytype/
+
+# Misc
+.cache/
+.env.local
+.env.*.local
+
+# Docker
+docker-compose.override.yml
+env.docker
+

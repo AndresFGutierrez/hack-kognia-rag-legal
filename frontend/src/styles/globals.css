@@ -1,0 +1,645 @@
+@import "tailwindcss";
+
+/* Fuentes premium */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* Variables de diseño (minimalista, profesional - sistema legal) */
+:root {
+  /* COLORES PRINCIPALES */
+  --color-primary: #1e40af; /* Azul profundo */
+  --color-accent: #10b981; /* Verde esmeralda */
+  --color-surface: #ffffff; /* Blanco puro */
+
+  /* NEUTRALES */
+  --color-background: #f9fafb; /* Gris muy claro */
+  --color-text-primary: #111827; /* Casi negro */
+  --color-text-secondary: #6b7280; /* Gris medio */
+  --color-border: #e5e7eb; /* Gris claro */
+
+  /* ESTADOS */
+  --color-primary-hover: #1e3a8a; /* Azul más oscuro */
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+
+  /* SOMBRAS SUTILES */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+
+  /* TIPOGRAFÍA */
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Monaco', 'Courier New', monospace;
+}
+
+/* Reset mejorado */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--color-text-primary);
+  background: var(--color-background);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Tipografía premium */
+
+/* Tipografía de encabezados: sobria y legible */
+h1 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-text-primary);
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-text-primary);
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-text-primary);
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+/* Código premium */
+code, kbd, pre {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+kbd {
+  padding: 0.25rem 0.625rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  box-shadow: var(--shadow-sm), inset 0 -1px 0 rgba(0,0,0,0.02);
+}
+
+/* Scrollbar sobrio */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(17,24,39,0.2);
+  border-radius: 8px;
+  border: 2px solid var(--color-background);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(17,24,39,0.2) var(--color-background);
+}
+
+/* Animaciones premium */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+  66% {
+    transform: translateY(-8px) rotate(-2deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4), 0 0 40px rgba(139, 92, 246, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.8), 0 0 80px rgba(139, 92, 246, 0.4);
+  }
+}
+
+/* Removed gradient-shift keyframes to avoid heavy gradient animations in the minimal design */
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate-gradient {
+  /* Disabled heavy hue-rotation; kept as noop for compatibility */
+  0% { filter: none; }
+  100% { filter: none; }
+}
+
+@keyframes particle-float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translate(10px, -10px) rotate(90deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(0, -20px) rotate(180deg);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translate(-10px, -10px) rotate(270deg);
+    opacity: 0.6;
+  }
+}
+
+@keyframes typing-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.5;
+    filter: blur(20px);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(30px);
+  }
+}
+
+/* Clases de utilidad premium */
+.text-gradient {
+  /* Utilidad: texto destacado con color primario */
+  color: var(--color-primary);
+}
+
+.animate-shimmer {
+  /* Subtle pulse instead of gradient shimmer */
+  animation: glow-pulse 3s ease-in-out infinite;
+  background: var(--color-background);
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-gradient {
+  /* Removed heavy gradient animation; use subtle glow */
+  animation: glow-pulse 6s ease-in-out infinite;
+}
+
+.animate-rotate-gradient {
+  /* No-op kept for compatibility with components that reference it */
+}
+
+/* Glassmorphism premium */
+.glass {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.glass-dark {
+  background: #0f172a;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.glass-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+
+/* Neumorphism suave */
+.neo-button {
+  background: var(--color-surface);
+  box-shadow: 0 6px 14px rgba(16,24,40,0.06);
+}
+
+.neo-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 8px rgba(16,24,40,0.04) inset;
+}
+
+/* Efectos de glow */
+.glow-primary {
+  box-shadow: 0 6px 20px rgba(30,64,175,0.08);
+}
+
+/* Selección de texto */
+::selection {
+  background: rgba(30,64,175,0.12);
+  color: var(--color-text-primary);
+}
+
+::-moz-selection {
+  background: rgba(30,64,175,0.12);
+  color: var(--color-text-primary);
+}
+
+/* Focus visible premium */
+:focus-visible {
+  outline: 2px solid rgba(30,64,175,0.12);
+  outline-offset: 3px;
+  border-radius: 0.375rem;
+}
+
+/* Transiciones ultra suaves */
+button, a, input, textarea, select {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover effects premium */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 1.875rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Diseño - tokens de espaciado */
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  --gap-elements: var(--space-4);
+  --gap-sections: var(--space-8);
+  --gap-page: var(--space-12);
+}
+
+/* Component level styles following system */
+.header {
+  padding: var(--space-8) var(--space-6);
+  background: var(--color-primary);
+  color: white;
+  margin-bottom: var(--gap-sections);
+}
+
+.documents-section {
+  padding: var(--space-6);
+  margin-bottom: var(--gap-sections);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+}
+
+.document-card {
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+  background: var(--color-background);
+  border-radius: 8px;
+}
+
+.chat-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.chat-messages {
+  padding: var(--space-6);
+  min-height: 500px;
+  background: var(--color-surface);
+  border-radius: 12px;
+  margin-bottom: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.message {
+  padding: var(--space-4);
+  border-radius: 12px;
+  max-width: 75%;
+  line-height: 1.6;
+}
+
+.message-user {
+  background: var(--color-primary);
+  color: white;
+  margin-left: auto;
+  padding: var(--space-4) var(--space-5);
+}
+
+.message-assistant {
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  padding: var(--space-5);
+}
+
+.message-header {
+  margin-bottom: var(--space-3);
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.message-content {
+  margin-bottom: var(--space-4);
+}
+
+.sources-section {
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.sources-title {
+  margin-bottom: var(--space-3);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.source-box {
+  background: rgba(245, 158, 11, 0.06);
+  border-left: 3px solid var(--color-warning);
+  padding: var(--space-4);
+  border-radius: 8px;
+}
+
+.source-text {
+  margin-bottom: var(--space-3);
+  font-style: italic;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.source-doc {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.input-container {
+  position: sticky;
+  bottom: 0;
+  background: var(--color-surface);
+  padding: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+}
+
+.input-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  gap: var(--space-4);
+}
+
+.input-field {
+  flex: 1;
+  padding: var(--space-4) var(--space-5);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.input-field:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(30,64,175,0.08);
+}
+
+.send-button {
+  padding: var(--space-4) var(--space-8);
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.send-button:hover {
+  background: var(--color-primary-hover);
+}
+
+.send-button:disabled {
+  background: var(--color-text-secondary);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.badge-primary {
+  background: rgba(30,64,175,0.08);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.badge-success {
+  background: rgba(16,185,129,0.08);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.footer {
+  background: var(--color-text-primary);
+  color: white;
+  padding: var(--space-10) var(--space-6);
+  margin-top: var(--gap-page);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer-title {
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+  font-size: 1.125rem;
+}
+
+@media (max-width: 768px) {
+  .chat-messages { padding: var(--space-4); gap: var(--space-4); }
+  .message { max-width: 90%; }
+  .footer-content { grid-template-columns: 1fr; gap: var(--space-6); }
+}
+
+/* Accesibilidad */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Loading skeleton premium */
+.skeleton {
+  background: var(--color-background);
+  animation: glow-pulse 2s ease-in-out infinite;
+  border-radius: 1rem;
+}
+
+/* Gradient borders */
+.gradient-border {
+  position: relative;
+  background: var(--color-surface);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 12px rgba(2,6,23,0.04);
+  border: 1px solid rgba(30,64,175,0.04);
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Utility animations */
+.animate-slide-up {
+  animation: slide-up 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-scale-in {
+  animation: scale-in 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Partículas decorativas */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.particle-glow {
+  animation: particle-float 8s ease-in-out infinite, glow-pulse 4s ease-in-out infinite;
+}
